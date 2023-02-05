@@ -1,2 +1,3 @@
-export declare function calculateItemTotalPrice(price: any, quantity: any): number;
-export declare function test(): string;
+export default class OrderCalculator {
+    calculateItemTotalPrice(price: number, quantity: number): number;
+}
