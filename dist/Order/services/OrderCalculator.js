@@ -6,9 +6,15 @@ class OrderCalculator {
         let withTaxes = 0;
         let taxAmount = 0;
         for (const item of items) {
-            withoutTaxes += item.price.withoutTaxes;
-            withTaxes += item.price.withTaxes;
-            taxAmount += item.price.taxAmount;
+            //TODO: move total price to a separate function
+            item.totalPrice = {
+                withoutTaxes: item.price.withoutTaxes * item.quantity,
+                withTaxes: item.price.withTaxes * item.quantity,
+                taxAmount: item.price.taxAmount * item.quantity,
+            };
+            withoutTaxes += item.totalPrice.withoutTaxes;
+            withTaxes += item.totalPrice.withTaxes;
+            taxAmount += item.totalPrice.taxAmount;
         }
         const price = {
             withoutTaxes: withoutTaxes,

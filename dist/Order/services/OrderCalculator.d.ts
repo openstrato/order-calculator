@@ -1,6 +1,7 @@
 interface OrderItem {
     quantity: number;
     price: Price;
+    totalPrice?: Price;
 }
 interface Price {
     withoutTaxes: number;
